@@ -3,6 +3,30 @@
 #include <vector>
 #include <iostream>
 
+class Test_1
+{
+private:
+    /* data */
+public:
+    Test_1(/* args */){};
+    virtual ~Test_1(){};
+    virtual void test_fun() {
+        printf("class Test_1's test_fun()\n");
+    }
+};
+
+class Test_2 : public Test_1
+{
+private:
+    /* data */
+public:
+    Test_2(/* args */){};
+    virtual ~Test_2(){};
+    virtual void test_fun() {
+        printf("class Test_2's test_fun()\n");
+    }
+};
+
 class Node
 {
     int ID;
@@ -52,6 +76,8 @@ int main(int argc, char const *argv[])
 {
     test_fun(6);
     test_fun("hello");
+    Test_1 test_1;
+    test_1.test_fun();
     std::cout << "传入的参数信息为\n";
     for (int i = 0; i < argc; i++)
     {
