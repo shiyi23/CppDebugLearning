@@ -40,8 +40,24 @@ public:
 
 };
 
+void test_fun(int a) {
+    printf("a = %d\n", a);
+}
+
+void test_fun(std::string str) {
+    printf("str is : %s\n", str);
+}
+
 int main(int argc, char const *argv[])
 {
+    test_fun(6);
+    test_fun("hello");
+    std::cout << "传入的参数信息为\n";
+    for (int i = 0; i < argc; i++)
+    {
+        printf("参数: %d=%s\n", i, argv[i]);
+    }
+    
     Node* node_head = new Node();
     node_head->next = node_head->prev = nullptr;
     printf("会员管理系统\n1:录入会员信息\nq:退出\n");
