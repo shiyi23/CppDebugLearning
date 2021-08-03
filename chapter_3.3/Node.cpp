@@ -72,8 +72,16 @@ void test_fun(std::string str) {
     printf("str is : %s\n", str);
 }
 
+void test_loop() {
+    for (int i = 0; i < 1000; i++)
+    {
+        printf("i = %d\n", i);
+    }
+}
+
 int main(int argc, char const *argv[])
-{
+{   
+    test_loop();//测试为条件表达式设置断点
     test_fun(6);
     test_fun("hello");
     Test_1 test_1;
