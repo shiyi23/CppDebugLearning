@@ -1,5 +1,6 @@
 //SimpleSection.c
 //通过与此代码的相关实践来学习objdump的使用
+//详见《程序员的自我修养—链接、装载与库》(潘爱民，俞甲子，石凡 著)3.3节
 
 int printf(const char* format, ...);
 
