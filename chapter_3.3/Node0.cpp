@@ -1,6 +1,35 @@
-//这是原书的C语言风格的版本
+//这是原书的会员管理系统用C语言风格代码来开发的版本
 #include <malloc.h>
 #include <string>
+#include <vector>
+#include <thread>
+
+int count = 0;
+void do_work(void* arg) {
+    printf("线程函数开始工作...\n");
+    int local_data = count;
+    count ++;
+    std::this_thread::sleep_for(std::chrono::seconds(3));
+    printf("线程函数结束工作！\n");
+}
+int start_threads(int thread_num) {
+    std::vector<std::thread> threadsVector;
+    //启动十个线程
+    for (size_t i = 0; i < count; i++)
+    {
+        threadsVector.emplace_back(std::thread(do_work, &i));
+        printf("启动新线程:%d\n", i);
+    }
+    //等待所有线程结束
+    for (auto& t: threadsVector)
+    {
+        if (t.joinable()) {
+            t.join();
+        }
+    }
+    
+    
+}
 
 struct Node0
 {
@@ -39,6 +68,7 @@ void add_member() {
 
 int main(int argc, char const *argv[])
 {
+    start_threads(10);
     node_head = (struct Node0*)malloc(sizeof(Node0));
     node_head->next = node_head->prev = NULL;
     printf("会员管理系统\n1:录入会员信息\nq:退出\n");

@@ -1,6 +1,7 @@
 EXECUTABLE:= chapter_3.3
 LIBDIR:=
-LIBS:=
+#添加线程库
+LIBS:=pthread
 INCLUDES:=.
 SRCDIR:=
 
