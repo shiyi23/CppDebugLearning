@@ -1,4 +1,6 @@
 //原书中本文件采用的是C语言风格实现的，这里我改为用C++风格实现。
+//用来学习core cump文件分析而使用的.
+/**
 #include <string>
 #include <vector>
 #include <iostream>
@@ -6,9 +8,9 @@
 class Test_1
 {
 private:
-    /* data */
+    
 public:
-    Test_1(/* args */){};
+    Test_1(){};
     virtual ~Test_1(){};
     virtual void test_fun() {
         printf("class Test_1's test_fun()\n");
@@ -18,9 +20,9 @@ public:
 class Test_2 : public Test_1
 {
 private:
-    /* data */
+    
 public:
-    Test_2(/* args */){};
+    Test_2(){};
     virtual ~Test_2(){};
     virtual void test_fun() {
         printf("class Test_2's test_fun()\n");
@@ -38,6 +40,7 @@ public:
     Node* next;
     Node* node_head;
     Node() {
+        this->prev = nullptr;
         this->node_head = nullptr;
     }
     void add_member() {
@@ -68,9 +71,9 @@ void test_fun(int a) {
     printf("a = %d\n", a);
 }
 
-void test_fun(std::string str) {
-    printf("str is : %s\n", str);
-}
+// void test_fun(std::string str) {
+//     printf("str is : %s\n", str);
+// }
 
 void test_loop() {
     for (int i = 0; i < 1000; i++)
@@ -81,9 +84,9 @@ void test_loop() {
 
 int main(int argc, char const *argv[])
 {   
-    test_loop();//测试为条件表达式设置断点
+    //test_loop();//测试为条件表达式设置断点
     test_fun(6);
-    test_fun("hello");
+    // test_fun("hello");
     Test_1 test_1;
     test_1.test_fun();
     std::cout << "传入的参数信息为\n";
@@ -110,3 +113,5 @@ int main(int argc, char const *argv[])
     
     return 0;
 }
+
+**/
