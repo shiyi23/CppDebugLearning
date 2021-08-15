@@ -35,5 +35,5 @@ $(MISSING_DEPS):
 endif
 -include $(DEPS)
 $(EXECUTABLE) : $(OBJS)
-		$(CC) -o $(EXECUTABLE) $(OBJS) $(addprefix -L, $(LIBDIR) ) $(addprefix -1,$(LIBS) )
+		$(CC) -o $(EXECUTABLE) $(OBJS) $(addprefix -L, $(LIBDIR) ) $(addprefix , -l$(LIBS) )
 
